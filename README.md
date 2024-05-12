@@ -1,6 +1,19 @@
-A demonstration of Docker to implement a simple 3 tier architecture
 
-* frontend will be able to access the mid-tier
-* mid-tier will be able to access the db
+Here's an updated version of your README.md that includes the NGINX reverse proxy layer, reflecting the current architecture of your Docker setup:
 
-In order to run this in docker, simply type ```docker-compose up``` at the command prompt. Docker will then create the [MongoDB](https://www.mongodb.com/) from the stock [mongo](https://hub.docker.com/_/mongo) image. The api uses [nodejs](https://nodejs.org/) with [express](http://expressjs.com/) and is built from a [node:alpine](https://hub.docker.com/_/node) image. The front end uses [ReactJS](https://reactjs.org/) and built from a [node:alpine](https://hub.docker.com/_/node) image.
+A demonstration of Docker to implement a simple 3-tier architecture
+
+The frontend can access the mid-tier.
+The mid-tier can access the database.
+Requests to both frontend and API are routed through an NGINX reverse proxy.
+Running the Application
+
+To run this application, type docker-compose up at the command prompt. Docker will set up the environment as follows:
+
+MongoDB: Utilizes the mongo image to create a MongoDB container for the database tier.
+API: Uses Node.js with Express for the mid-tier, built from a node:alpine image, which handles business logic and database operations.
+Frontend: The frontend is powered by ReactJS, also built from a node:alpine image, providing the user interface.
+NGINX: Configured as a reverse proxy, NGINX routes incoming requests to either the frontend or the API based on the URL path. It improves security and efficiency of handling requests.
+Architecture Overview
+
+This setup illustrates a typical 3-tier architecture within a Docker environment, enhanced with an NGINX reverse proxy for better control over traffic flow and security.
