@@ -1,6 +1,3 @@
-
-Here's an updated version of your README.md that includes the NGINX reverse proxy layer, reflecting the current architecture of your Docker setup:
-
 A demonstration of Docker to implement a simple 3-tier architecture
 
 The frontend can access the mid-tier.
