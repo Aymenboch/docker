@@ -3,19 +3,16 @@ const router = express.Router();
 
 const Todo = require("../models/todo");
 
-// GET all todos
 router.get("/", async (req, res) => {
   const todos = await Todo.find({ is_complete: false });
   res.send(todos);
 });
 
-// GET todo based on ID
 router.get("/:id", async (req, res) => {
   const todo = await Todo.findOne({ _id: req.params.id });
   res.send(todo);
 });
 
-// POST create new todo
 router.post("/", async (req, res) => {
   console.log(req.body);
   const todo = new Todo({
@@ -28,7 +25,6 @@ router.post("/", async (req, res) => {
   res.send(todo);
 });
 
-// UPDATE todo
 router.patch("/:id", async (req, res) => {
   try {
     const todo = await Todo.findOne({ _id: req.params.id });
@@ -53,7 +49,6 @@ router.patch("/:id", async (req, res) => {
   }
 });
 
-// DELETE todo
 router.delete("/:id", async (req, res) => {
   try {
     await Todo.deleteOne({ _id: req.params.id });
